@@ -4,26 +4,14 @@
     <title>HelloWorld</title>
 </head>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
+<link rel="stylesheet" type="text/css" href="main.css">
 <body>
 <p>Apple</p>
 <p id="id2">Pear</p>
 <p>Banana</p>
 <script>
 
-  var dataset = ["I like dog", "I like cat", "I like snake"];
   var body = d3.select("body");
-  var p = body.selectAll("p");
-  // p.date(dataset);
-
-  p.data(dataset).text(function (d, i) {
-    return d;
-  });
-  body.insert("p", "#id2").text("insert one p element");
-
-
-  var pToBeRemoved = body.select("#id2").remove();
-
 
   var svg = body.append("svg").attr("width", 300).attr("height", 300);
 
@@ -53,6 +41,11 @@
     })
     .attr("height", rectHeight - 2)
     .attr("fill", "steelblue");
+
+  svg.append("g")
+    .attr("class","axis")
+    .attr("transform","translate(20,130)")
+    .call(axis);
 
 </script>
 </body>
